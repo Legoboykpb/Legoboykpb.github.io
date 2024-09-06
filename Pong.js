@@ -37,11 +37,25 @@ new ResizeObserver(onResize).observe(canvas)
 const context = canvas.getContext("2d")
 
 function render() {
-    context.fillStyle = "red"
+    context.fillStyle = "yellow"
     context.fillRect(
         paddle1.x,
         paddle1.y,
         paddle1.w,
-        paddle1.h
+        paddle1.h,
+
+    context.fillStyle = "blue"
+    context.fillRect(
+        paddle2.x,
+        paddle2.y,
+        paddle2.w,
+        paddle2.h,
     )
 }
+
+function animate() {
+    render()
+    requestAnimationFrame(animate)
+}
+
+animate()
