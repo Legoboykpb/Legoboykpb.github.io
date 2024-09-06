@@ -19,6 +19,11 @@ const ball = {
 }
 
 const canvas = document.createElement("canvas")
+    canvas.style.position = "absolute"
+    canvas.style.top = "0px"
+    canvas.style.left = "0px"
+    canvas.style.width = "100dvw"
+    canvas.style.height = "100dvh"
     canvas.style.backgroundColor = "black"
 document.body.appendChild(canvas)
 
@@ -28,3 +33,15 @@ function onResize() {
 }
 
 new ResizeObserver(onResize).observe(canvas)
+
+const context = canvas.getContext("2d")
+
+function render() {
+    context.fillStyle = "red"
+    context.fillRect(
+        paddle1.x,
+        paddle1.y,
+        paddle1.w,
+        paddle1.h
+    )
+}
