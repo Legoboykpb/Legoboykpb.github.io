@@ -43,9 +43,10 @@ function render() {
         paddle1.y,
         paddle1.w,
         paddle1.h,
-
-    context.fillStyle = "blue"
+    )
+    
     context.fillRect(
+        context.fillStyle = "blue",
         paddle2.x,
         paddle2.y,
         paddle2.w,
