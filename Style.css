@@ -1,4 +1,4 @@
 .header {
     flex-direction: column;
-    -ms-flex-align: center;
+    align-content:center;
 }
