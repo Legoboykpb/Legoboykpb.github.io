@@ -1,0 +1,75 @@
+* {
+    inset: 0;
+    margin: 0;
+    padding: 0;
+
+    --theme-primary: #CC3363;
+    --theme-secondary: #00571e;
+    --theme-accent: #1098F7;
+    --theme-surface: #C6C5B9;
+
+    --theme-primary-content: #C6C5B9;
+    --theme-secondary-content: #CC3363;
+    --theme-accent-content: #1098F7;
+    --theme-surface-content: #00571e;
+
+    background: var(--theme-surface);
+    color: var(--theme-surface-content)
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.jfif {
+    height: 100px;
+    border: solid;
+    border-width: 2px;
+    border-color:rbg(30, 100, 30);
+}
+
+.bg-primary {
+    background: var(--theme-primary);
+}
+
+.bg-secondary {
+    background: var(--theme-secondary);
+}
+
+.bg-accent {
+    background: var(--theme-accent);
+}
+
+.bg-surface {
+    background: var(--theme-surface);
+}
+
+.text-primary {
+    background: var(--theme-primary-content);
+}
+
+.text-secondary {
+    background: var(--theme-secondary-content);
+}
+
+.text-accent {
+    background: var(--theme-accent-content);
+}
+
+.text-surface {
+    background: var(--theme-surface-content);
+}
