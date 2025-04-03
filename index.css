@@ -1,75 +1,96 @@
+
 * {
     inset: 0;
     margin: 0;
     padding: 0;
-
-    --theme-primary: #CC3363;
+  
+    --theme-primary  : #CC3363;
     --theme-secondary: #00571e;
-    --theme-accent: #1098F7;
-    --theme-surface: #C6C5B9;
+    --theme-accent   : #1098F7;
+    --theme-surface  : #C6C5B9;
+  
+    --theme-primary-content  : #00571e;
+    --theme-secondary-content: #C6C5B9;
+    --theme-accent-content   : #1098F7;
+    --theme-surface-content  : #CC3363;
 
-    --theme-primary-content: #C6C5B9;
-    --theme-secondary-content: #CC3363;
-    --theme-accent-content: #1098F7;
-    --theme-surface-content: #00571e;
-
+    color: var(--theme-surface-content);
+  }
+  
+  body {
     background: var(--theme-surface);
-    color: var(--theme-surface-content)
-}
-
-.flex-row {
+  }
+  
+  .flex-row {
     display: flex;
     flex-direction: row;
-}
-
-.flex-col {
+  }
+  
+  .flex-col {
     display: flex;
     flex-direction: column;
-}
-
-.justify-center {
+  }
+  
+  .justify-center {
     justify-content: center;
-}
-
-.align-center {
+  }
+  
+  .align-center {
     align-items: center;
-}
-
-.jfif {
-    height: 100px;
+  }
+  
+  .pfp {
+    width: 200px;
+    border-radius: 100%;
     border: solid;
     border-width: 2px;
-    border-color:rbg(30, 100, 30);
-}
-
-.bg-primary {
+    border-color: red;
+  }
+  
+  .bg-primary {
     background: var(--theme-primary);
-}
-
-.bg-secondary {
+  }
+  
+  .bg-secondary {
     background: var(--theme-secondary);
-}
-
-.bg-accent {
+  }
+  
+  .bg-accent {
     background: var(--theme-accent);
-}
-
-.bg-surface {
+  }
+  
+  .bg-surface {
     background: var(--theme-surface);
-}
-
-.text-primary {
-    background: var(--theme-primary-content);
-}
-
-.text-secondary {
-    background: var(--theme-secondary-content);
-}
-
-.text-accent {
-    background: var(--theme-accent-content);
-}
-
-.text-surface {
-    background: var(--theme-surface-content);
-}
+  }
+  
+  .text-primary-content {
+    color: var(--theme-primary-content);
+  }
+  
+  .text-secondary-content {
+    color: var(--theme-secondary-content);
+  }
+  
+  .text-accent-content {
+    color: var(--theme-accent-content);
+  }
+  
+  .text-surface-content {
+    color: var(--theme-surface-content);
+  }
+  
+  .text-primary {
+    color: var(--theme-primary);
+  }
+  
+  .text-secondary {
+    color: var(--theme-secondary);
+  }
+  
+  .text-accent {
+    color: var(--theme-accent);
+  }
+  
+  .text-surface {
+    color: var(--theme-surface);
+  }
