@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rocketeer</title>
+    </head>
+    <body>
+    <div id="rocket">🚀</div>
+  </body>
+  <script>
+    let mouseX = 0
+    let mouseY = 0
+
+    let a  = 0 // angle of the rocket (in radians)
+    let x  = 0 // x position of the rocket (in pixels)
+    let y  = 0 // y position of the rocket (in pixels)
+    let vx = 0 // x velocity of the rocket (in pixels per second)
+    let vy = 0 // y velocity of the rocket (in pixels per second)
+
+    let maximumSpeed = 500  // maximumspeed of the rocket (in pixels per second)
+    let acceleration = 1000 // acceleration of the rocket (in pixels per second per second)
+
+    document.body.style.backgroundColor = "midnightblue"
+    document.body.style.overflow = "clip"
+
+    // setup the rocket element
+    const rocket = document.querySelector("#rocket")
+    rocket.style.transformOrigin = "center"
+    rocket.style.position = "absolute"
+    rocket.style.fontSize = "64px"
+
+    // setup the stars
+    for(let i = 0; i < 33; i ++) {
+      const star = document.createElement("div")      
+      star.style.transformOrigin = "center"
+      star.style.position = "absolute"
+      star.innerText = "⭐"
+
+      let x = Math.random() * window.innerWidth
+      let y = Math.random() * window.innerHeight
+      let a = Math.random() * Math.PI * 2
+      let s = Math.random() + 1
+      star.style.transform = `translate(${x}px, ${y}px) rotate(${a}rad) scale(${s})`
+
+      document.body.insertBefore(star, rocket)
+    }
+
+    // setup the mouse
+    document.onmousemove = (e) => {
+      mouseX = e.clientX
+      mouseY = e.clientY
+    }
+
+    function animate(t0, t1, t2) {
+      const
+        t  = (t2 - t0) / 1000, // time since first frame (in seconds)
+        dt = (t2 - t1) / 1000, // time since last  frame (in seconds)
+        dx = mouseX - x,                // x distance to mouse (in pixels)
+        dy = mouseY - y,                // y distance to mouse (in pixels)
+        distance  = Math.hypot(dx, dy); //   distance to mouse (in pixels)
+
+      // accelerate the rocket toward the mouse pointer
+      if(distance !== 0) {
+        vx += acceleration * (dx / distance) * dt
+        vy += acceleration * (dy / distance) * dt
+        // cap the maximum speed of the rocket
+        if(Math.hypot(vx, vy) > maximumSpeed) {
+          const a = Math.atan2(vy, vx)
+          vx = Math.cos(a) * maximumSpeed
+          vy = Math.sin(a) * maximumSpeed
+        }
+      }
+
+      // set the angle of the rocket based on its velocity
+      if(vx !== 0 || vy !== 0) {
+        a  = Math.atan2(vy, vx) + Math.PI / 4
+      }
+
+      // update the position of the rocket
+      x += vx * dt
+      y += vy * dt
+
+      // move the rocket on screen
+      rocket.style.transform = `translate(${x}px,${y}px) rotate(${a}rad)`
+
+      // queue next frame
+      requestAnimationFrame(t3 => animate(t0, t2, t3))
+    }
+
+            requestAnimationFrame(
+            t0 => requestAnimationFrame(
+                t1 => requestAnimationFrame(
+                    t2 => animate(t0, t1, t2))))
+        </script>
+    </body>
+</html>
